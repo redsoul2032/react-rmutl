@@ -20,7 +20,7 @@ class Register extends Component{
         });
     }
     handleClicked() {
-        let url = `https://localhost:3000/data`;
+        let url =`/data`;
         let data = {
             idkey:this.state.idkey,
             firstname:this.state.firstname,
@@ -32,7 +32,7 @@ class Register extends Component{
             firstname:"",
             lastname:""
         })
-        window.history.back("https://localhost:3000/Showdata");
+        window.history.back("/Showdata");
     }
 
     render() {

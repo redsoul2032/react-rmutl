@@ -9,8 +9,8 @@ var fs = require('fs');
 var http = require('http');
 var https = require('https');
 
-var privateKey  = fs.readFileSync(__dirname + '/server.key', 'utf8');
-var certificate = fs.readFileSync(__dirname + '/server.crt', 'utf8');
+var privateKey  = fs.readFileSync('/etc/letsencrypt/live/panuphong.ddns.net/privkey.pem', 'utf8');
+var certificate = fs.readFileSync('/etc/letsencrypt/live/panuphong.ddns.net/fullchain.pem', 'utf8');
 
 var credentials = {key: privateKey, cert: certificate};
 const app = express();
@@ -21,7 +21,7 @@ app.use(body());
 app.use(express.static(path.resolve(__dirname, '..', 'build')));
 
 const db = mysql.createConnection({
-    host: '172.27.176.1',
+    host: '127.0.0.1',
     user: 'pleum',
     password: '1234',
     database: 'react_test_db'
